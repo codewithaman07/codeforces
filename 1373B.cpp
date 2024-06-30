@@ -11,11 +11,21 @@ using namespace std;
 #define MOD 1000000007
 
 void solve() {
-    int n; cin>>n;
-    vector<int>arr(n);
-    f(0,n) cin>>arr[i];
-    int ans = accumulate(arr.begin(), arr.end(), arr[0], std::bit_and<int>());
-    cout<<ans<<endl;
+    string s; cin>>s;
+    ll zeros = 0, n = s.size();
+    f(0,n){
+        if(s[i] == '0'){
+            zeros++;
+        }
+    }
+    ll ones = n-zeros;
+    ll mini = min(ones, zeros);
+    if(mini &1){
+        cout<<"DA"<<endl;
+    }
+    else{
+        cout<<"NET"<<endl;
+    }
 }
 
 int main() {
@@ -23,10 +33,10 @@ int main() {
     cin.tie(0);
     cout.tie(0);
 
-// #ifndef ONLINE_JUDGE
-//     freopen("input.txt", "r", stdin);
-//     freopen("output.txt", "w", stdout);
-// #endif
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
 
     int tc;
     cin >> tc;

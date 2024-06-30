@@ -1,37 +1,40 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
+#define endl '\n'
+#define ll long long
+#define pb push_back
+#define ff first
+#define ss second
+#define f(x,n) for(ll i = x ; i<n ; i++) 
+#define all(x) x.begin(),x.end()  
+#define MOD 1000000007
+
+void solve() {
+    ll n; cin>>n;
+    if((n&(n-1)) == 0){
+        cout<<"no"<<endl;
+    }
+    else{
+        cout<<"yes"<<endl;
+    }
+}
+
 int main() {
-    #ifndef a 
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-    #endif
-    long long t,n;
-    cin>>t;
-    while(t--){
-    	cin>>n;
-    	if(n%2 != 0){
-    		cout<<"YES"<<endl;
-    	}
-    	else{
-    		int flag = 0;
-    		long long div = n;
-    		while(div>2){
-    			div/=2;
-    			if(div & 1){
-    				if(n%div == 0)
-    				flag = 1;
-    				break;
-    			}
-    		}
-    		if(flag){
-    			cout<<"YES"<<endl;
-    		}
-    		else{
-    			cout<<"NO"<<endl;
-    		}
-    	}
+#endif
+
+    int tc;
+    cin >> tc;
+    while (tc--) {
+        solve();
     }
+
     return 0;
 }
