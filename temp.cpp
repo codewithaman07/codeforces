@@ -1,39 +1,49 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
-void solve() {
-    int n;
-    cin >> n;
-    vector<int> p(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> p[i];
-    }
+struct Cmt {
+    string id;
+    int time, listNum;
 
-    for (int j = 1; j < n - 1; ++j) {
-        for (int i = 0; i < j; ++i) {
-            if (p[i] < p[j]) {
-                for (int k = j + 1; k < n; ++k) {
-                    if (p[j] > p[k]) {
-                        cout << "YES" << endl;
-                        cout << i + 1 << " " << j + 1 << " " << k + 1 << endl;
-                        return;
-                    }
-                }
-            }
-        }
-    }
-    cout << "NO" << endl;
+    Cmt(string i, int t, int l) : id(i), time(t), listNum(l) {}
+};
+
+bool cmp(const Cmt &a, const Cmt &b) {
+    if (a.time == b.time) 
+        return a.listNum < b.listNum;  // Priority to the first list
+    return a.time < b.time;
 }
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
+    int n1, n2;
+    cin >> n1;
 
-    int T;
-    cin >> T;
-    while (T--) {
-        solve();
+    vector<Cmt> cmts;
+
+    for (int i = 0; i < n1; ++i) {
+        string id;
+        int t, s;
+        cin >> id >> t >> s;
+        if (s == 1) cmts.emplace_back(id, t, 1);
+    }
+
+    cin >> n2;
+
+    for (int i = 0; i < n2; ++i) {
+        string id;
+        int t, s;
+        cin >> id >> t >> s;
+        if (s == 1) cmts.emplace_back(id, t, 2);
+    }
+
+    sort(cmts.begin(), cmts.end(), cmp);
+
+    for (const auto &c : cmts) {
+        cout << c.id << endl;
     }
 
     return 0;

@@ -1,0 +1,8 @@
+.vscode/
+.cph/
+*.exe
+*.out
+*.o
+temp*.cpp
+*.txt
+*.bak
