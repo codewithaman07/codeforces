@@ -21,14 +21,10 @@ void solve() {
     for(int i = 1; i<n; i++){
         int x = lower_bound(all(brr), arr[i-1]+arr[i]) - brr.begin();
         if(arr[i-1]<=arr[i]){
-            if(x<m){
-                arr[i] = min(arr[i], brr[x]-arr[i]);
-            }
+            if(x<m) arr[i] = min(arr[i], brr[x]-arr[i]);
         }
         else{
-            if(x<m){
-                arr[i] = brr[x]-arr[i];
-            }
+            if(x<m) arr[i] = brr[x]-arr[i];
             else{
                 cout<<"NO"<<endl;
                 return;
